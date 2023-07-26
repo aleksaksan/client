@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={ <Layout/> }>
           <Route index element={<HomePage />}/>
-          <Route path="message-customization" element={<MessageСustomizationPage />}/>
+          <Route path="/:id" element={<MessageСustomizationPage />}/>
           <Route path="*" element={<NotFoundPage />}/>
         </Route>
       </Routes>

@@ -6,4 +6,12 @@ header {
 
 .container {
   @include container;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+}
+
+.link {
+  display: block;
+  justify-self: end;
 }

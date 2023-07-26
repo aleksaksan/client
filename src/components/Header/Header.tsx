@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import style from './Header.module.scss';
+import { LayoutContext } from '../Layout/Context';
+import { setNamePage } from '../Layout/helper';
+import { PageEnum } from '../../shared/enums/PageEnum';
+import { Link } from 'react-router-dom';
 
-type HeaderProps = {
-  title: string,
+export const Header = () => {
+  const {currentPage, currentChannel} = useContext(LayoutContext);
+  const pageTitle = setNamePage(currentPage, currentChannel);
+  const isHomePage = currentPage === PageEnum.HomePage;
 
-} 
-
-export const Header = (props: HeaderProps) => {
   return (
     <header>
       <div className={style.container}>
-        {props.title}
+        <div>{pageTitle}</div>
+        {!isHomePage && <Link className={style.link} to={'/'}>to Home</Link>}
       </div>
     </header>
   )
